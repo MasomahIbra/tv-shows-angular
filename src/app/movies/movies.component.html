@@ -1,0 +1,34 @@
+<!--Content-->
+<div class="container">
+  <div class="row">
+      
+      <div class="col-lg-4  mt-2 mb-5"  *ngFor="let movie of (lesMovies$ | async)?.results">
+          <!--Card-->
+          <div class="card wow fadeIn" data-wow-delay="0.2s">
+
+              <!--Card image-->
+              <div class="view overlay hm-white-slight" appHoverCard>
+                  <a routerLink="/details/{{movie.id}}"><img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" class="img-fluid" alt="{{movie.name}}"></a>
+              </div>
+              <!--/.Card image-->
+
+              <!--Card content-->
+              <div class="card-block p-2">
+                  <!--Title-->
+                  <h4 class="card-title">{{movie.name}}</h4>
+                  <!--Text-->
+                  <p class="card-text">{{ movie.overview | excerpt:100}}</p>
+                  <a routerLink="/details/{{movie.id}}" class="btn btn-info"><fa name="plus" class="mr-2"></fa> Read more</a>
+              </div>
+              <!--/.Card content-->
+
+          </div>
+          <!--/.Card-->
+      </div>
+
+  </div>
+</div>
+<!--/.Content-->
+
+
+ <!-- {{ lesMovies$ | async | json }} -->

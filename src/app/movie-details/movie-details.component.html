@@ -1,0 +1,29 @@
+<div class="container">
+    <h2 class="mb-4">{{(myMovei$ | async)?.name}}</h2>
+    <div class="row">
+      <p class="col-6">        
+        <img src="https://image.tmdb.org/t/p/w500/{{(myMovei$ | async)?.poster_path}}" class="img-fluid" alt="{{(myMovei$ | async)?.name}}">
+      </p>
+      <div class="col-6">
+          <div class="mb-4">
+            <h3>Genres</h3>
+            <ul class="list-group ml-5">
+                <li class="list-group-item" *ngFor="let genre of (myMovei$ | async)?.genres">
+                    {{genre.name}}
+                </li>
+              </ul>
+          </div>
+          <h5>Number of seasion: <span class="badge badge-info">{{(myMovei$ | async)?.number_of_seasons}}</span></h5>
+          <h5>Number of episodes: <span class="badge badge-success">{{(myMovei$ | async)?.number_of_episodes}}</span></h5>
+          <h5>Episode run time: <span class="badge badge-danger">{{(myMovei$ | async)?.episode_run_time[0]}}</span></h5>
+          <h5 class="m-4 text-center"><a href="{{(myMovei$ | async)?.homepage}}" target="_blanck">Go to the official site</a></h5>
+          <div>
+              <h3>Overview</h3>
+              <p class="card-text">{{(myMovei$ | async)?.overview}}</p>
+          </div>
+      </div>
+    </div>
+</div>
+
+
+ <!-- {{ myMovei$ | async | json }} -->
